@@ -1,0 +1,23 @@
+{
+    "name": "caouecs/bootstrap3",
+    "description": "",
+    "authors": [
+        {
+            "name": "caouecs",
+            "email": "caouecs@caouecs.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Caouecs\\Bootstrap3": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
