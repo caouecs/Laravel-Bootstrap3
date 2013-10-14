@@ -1,0 +1,11 @@
+{
+  "providers": [
+    "Caouecs\\Bootstrap3\\Bootstrap3ServiceProvider"
+  ],
+  "aliases": [
+    {
+      "alias": "Form",
+      "facade": "Caouecs\\Bootstrap3\\Form"
+    }
+  ]
+}
