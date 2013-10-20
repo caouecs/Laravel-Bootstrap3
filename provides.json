@@ -6,6 +6,10 @@
     {
       "alias": "Form",
       "facade": "Caouecs\\Bootstrap3\\Form"
+    },
+    {
+      "alias": "Alert",
+      "facade": "Caouecs\\Bootstrap3\\Alert"
     }
   ]
 }
