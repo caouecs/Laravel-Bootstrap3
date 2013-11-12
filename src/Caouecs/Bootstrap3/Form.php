@@ -325,4 +325,20 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         return $txt;
     }
+
+    /**
+     * Display text with title for form-group
+     *
+     * @access public
+     * @param string $title
+     * @param string $text
+     * @return string
+     */
+    static public function text_group($title, $text)
+    {
+        return '<div class="form-group">
+            <label  class="col-md-2 control-label">'.$title.'</label>
+            <div class="col-md-10">'.$text.'</div>
+          </div>';
+    }
 }
