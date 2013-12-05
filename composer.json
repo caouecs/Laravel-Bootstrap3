@@ -1,7 +1,7 @@
 {
     "name": "caouecs/bootstrap3",
     "description": "Bootstrap 3 for Laravel 4",
-    "keywords": ["laravel", "bootstrap3"],
+    "keywords": ["laravel", "bootstrap3", "lpm"],
     "license": "MIT",
     "authors": [
         {

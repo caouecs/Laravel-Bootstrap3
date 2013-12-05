@@ -267,6 +267,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param mixed $input Value by input
      * @param ExceptionError $errors
      * @param array $attributes
+     * @param string $help Help message
      * @return string
      */
     static public function checkbox_group($name, $title, $value = 1, $input = 0, $errors = null, $attributes = array(), $help = null)
@@ -293,6 +294,44 @@ class Form extends \Illuminate\Support\Facades\Form {
         $txt .= '     </div>
                     </div>
                   </div>';
+
+        return $txt;
+    }
+
+    /**
+     * Display input radio for form-group
+     *
+     * @access public
+     * @param string $name Name of radio
+     * @param string $title Title of radio
+     * @param array $choices Choices
+     * @param mixed $value Value if checked
+     * @param ExceptionError $errors
+     * @param array $attributes
+     * @param string $help Help message
+     * @return string
+     */
+    static public function radio_group($name, $title, $choices, $value = 1, $errors = null, $attributes = array(), $help = null)
+    {
+        if (!is_array($choices) || empty($choices)) {
+            return null;
+        }
+
+        $txt = '<div class="form-group">
+            <label  class="col-md-2 control-label">'.$title.'</label>
+            <div class="col-md-10">';
+
+        foreach ($choices as $key => $value) {
+            $txt .= Form::radio($name, $key, ($key == $value), $attributes).' '.$value.' ';
+        }
+
+        if (!empty($help))
+            $txt .= '<span class="help-block">'.$help.'</span>';
+
+        if (!is_null($errors) && $errors->has($name))
+            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+
+        $txt .= '</div></div>';
 
         return $txt;
     }
