@@ -354,9 +354,19 @@ class Form extends \Illuminate\Support\Facades\Form {
         $options['submit_title'] = isset($options['submit_title']) ? $options['submit_title'] : trans('form.submit');
 
         $txt .= Form::submit($options['submit_title'], $attributes);
-        
+
+        /**
+         * Url for cancel
+         */
         if (isset($options['cancel_url'])) {
             $txt .= ' <a href="'.$options['cancel_url'].'">'.trans('form.cancel').'</a>';
+        }
+
+        /**
+         * Reset
+         */
+        if (isset($options['reset']) && $options['reset'] === true) {
+            $txt .= ' '.Form::reset("Reset", array("class" => "btn btn-default"));
         }
 
         $txt .= '</div>

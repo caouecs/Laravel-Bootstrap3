@@ -80,7 +80,7 @@ class Breadcrumb extends Core {
 
         $attributes = Helpers::addClass($this->attributes, "breadcrumb");
 
-        $res = '<ol'.HTML::attributes($attributes).'>';
+        $res = '<ol'.HTML::attributes($attributes).' itemprop="breadcrumb">';
 
         foreach ($this->elements as $element) {
 
