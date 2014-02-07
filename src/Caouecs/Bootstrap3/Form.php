@@ -6,6 +6,18 @@ use Request;
 class Form extends \Illuminate\Support\Facades\Form {
 
     /**
+     * Open form-horizontal
+     *
+     * @access public
+     * @param array $params
+     * @return string
+     */
+    static public function open_horizontal($params)
+    {
+        return self::open(Helpers::addClass($params, "form-horizontal"));
+    }
+
+    /**
      * Display input for form-group
      *
      * @access public
@@ -25,13 +37,13 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= Form::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
 
         $txt .= '<div class="col-md-10">';
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
-        $txt .= Form::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
+        $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
         if (!empty($help))
             $txt .= '<span class="help-block">'.$help.'</span>';
@@ -65,7 +77,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= Form::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
 
         $txt .= '<div class="col-md-10">';
 
@@ -83,7 +95,7 @@ class Form extends \Illuminate\Support\Facades\Form {
 
             $txt .= '<div class="pull-left">'.$val['title'].'</div>';
             
-            $txt .= Form::input($type, $name."[".$val['id']."]", $value_tmp, $attributes);
+            $txt .= self::input($type, $name."[".$val['id']."]", $value_tmp, $attributes);
             if (!is_null($errors) && $errors->has($name."[".$val['id']."]"))
                 $txt .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
         }
@@ -112,14 +124,14 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= Form::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
 
         $txt .= '<div class="col-md-10">';
 
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
 
-        $txt .= Form::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
+        $txt .= self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
         if (!empty($help))
             $txt .= '<span class="help-block">'.$help.'</span>';
@@ -151,13 +163,13 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= 'class="has-error"';
         $txt .= ' for="'.$name.'">';
 
-        $txt .= Form::label($name, $title);
+        $txt .= self::label($name, $title);
 
 
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
 
-        $txt .= Form::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
+        $txt .= self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
         if (!empty($help))
             $txt .= '<span class="help-block">'.$help.'</span>';
@@ -190,7 +202,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= Form::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
 
         $txt .= '<div class="col-md-10">';
 
@@ -209,7 +221,7 @@ class Form extends \Illuminate\Support\Facades\Form {
 
             $txt .= '<div>'.$val['title'].'</div>';
 
-            $txt .= Form::textarea($name."[".$val['id']."]", $value_tmp, $attributes);
+            $txt .= self::textarea($name."[".$val['id']."]", $value_tmp, $attributes);
 
             if (!is_null($errors) && $errors->has($name."[".$val['id']."]"))
                 $txt .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
@@ -244,7 +256,7 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
-        $txt .= Form::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
+        $txt .= self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
 
         if (!empty($help))
             $txt .= '<span class="help-block">'.$help.'</span>';
@@ -284,7 +296,7 @@ class Form extends \Illuminate\Support\Facades\Form {
         else
             $checked = false;
 
-        $txt .= Form::checkbox($name, $value, $checked, $attributes);
+        $txt .= self::checkbox($name, $value, $checked, $attributes);
 
         $txt .= ' '.$title.'</label>';
 
@@ -322,7 +334,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             <div class="col-md-10">';
 
         foreach ($choices as $key => $value) {
-            $txt .= Form::radio($name, $key, ($key == $value), $attributes).' '.$value.' ';
+            $txt .= self::radio($name, $key, ($key == $value), $attributes).' '.$value.' ';
         }
 
         if (!empty($help))
@@ -353,7 +365,7 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $options['submit_title'] = isset($options['submit_title']) ? $options['submit_title'] : trans('form.submit');
 
-        $txt .= Form::submit($options['submit_title'], $attributes);
+        $txt .= self::submit($options['submit_title'], $attributes);
 
         /**
          * Url for cancel
@@ -366,7 +378,7 @@ class Form extends \Illuminate\Support\Facades\Form {
          * Reset
          */
         if (isset($options['reset']) && $options['reset'] === true) {
-            $txt .= ' '.Form::reset("Reset", array("class" => "btn btn-default"));
+            $txt .= ' '.self::reset("Reset", array("class" => "btn btn-default"));
         }
 
         $txt .= '</div>
