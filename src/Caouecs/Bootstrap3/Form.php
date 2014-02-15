@@ -94,7 +94,7 @@ class Form extends \Illuminate\Support\Facades\Form {
                 $value_tmp = isset($value[$val['id']][$name]) ? $value[$val['id']][$name] : null;
 
             $txt .= '<div class="pull-left">'.$val['title'].'</div>';
-            
+
             $txt .= self::input($type, $name."[".$val['id']."]", $value_tmp, $attributes);
             if (!is_null($errors) && $errors->has($name."[".$val['id']."]"))
                 $txt .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
@@ -288,7 +288,7 @@ class Form extends \Illuminate\Support\Facades\Form {
                     <div class="col-md-offset-2 col-md-10">
                       <div class="checkbox">
                         <label>';
-        
+
         $input = Request::old($name) ? Request::old($name) : $input;
 
         if ($input == $value)
@@ -333,8 +333,8 @@ class Form extends \Illuminate\Support\Facades\Form {
             <label  class="col-md-2 control-label">'.$title.'</label>
             <div class="col-md-10">';
 
-        foreach ($choices as $key => $value) {
-            $txt .= self::radio($name, $key, ($key == $value), $attributes).' '.$value.' ';
+        foreach ($choices as $key => $_value) {
+            $txt .= self::radio($name, $key, ($key == $value), $attributes).' '.$_value.' ';
         }
 
         if (!empty($help))
