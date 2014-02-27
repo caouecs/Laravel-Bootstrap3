@@ -1,6 +1,5 @@
 <?php namespace Caouecs\Bootstrap3;
 
-use Caouecs\Bootstrap3\Helpers;
 use Request;
 
 class Form extends \Illuminate\Support\Facades\Form {
@@ -15,6 +14,79 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function open_horizontal($params)
     {
         return self::open(Helpers::addClass($params, "form-horizontal"));
+    }
+
+    /**
+     * Display input for form basic
+     *
+     * @access public
+     * @param string $type Type of input
+     * @param string $name Name of input
+     * @param string $title Title of input
+     * @param mixed $value Value of input
+     * @param ExceptionError $errors
+     * @param array $attributes
+     * @param string $help Help message
+     * @return string
+     */
+    static public function input_basic($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    {
+        $txt = '<div class="form-group';
+        if (!is_null($errors) && $errors->has($name))
+            $txt .= ' has-error';
+        $txt .= '" for="'.$name.'">';
+
+        $txt .= self::label($name, $title);
+
+        $attributes = Helpers::addClass($attributes, "form-control");
+
+        $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
+
+        if (!empty($help))
+            $txt .= '<span class="help-block">'.$help.'</span>';
+
+        if (!is_null($errors) && $errors->has($name))
+            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+
+        $txt .= '</div>';
+
+        return $txt;
+    }
+
+    /**
+     * Display select for form basic
+     *
+     * @access public
+     * @param string $name Name of select
+     * @param string $title Title of select
+     * @param array $list List of values
+     * @param mixed $value Value of select
+     * @param ExceptionError $errors
+     * @param array $attributes
+     * @param string $help Help message
+     * @return string
+     */
+    static public function select_basic($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
+    {
+        $txt = '<div class="form-group';
+        if (!is_null($errors) && $errors->has($name))
+            $txt .= ' has-error';
+        $txt .= '" for="'.$name.'">
+            <label for="'.$name.'">'.$title.'</label>';
+
+        $attributes = Helpers::addClass($attributes, "form-control");
+
+        $txt .= self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
+
+        if (!empty($help))
+            $txt .= '<span class="help-block">'.$help.'</span>';
+
+        if (!is_null($errors) && $errors->has($name))
+            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+
+        $txt .= '</div>';
+
+        return $txt;
     }
 
     /**

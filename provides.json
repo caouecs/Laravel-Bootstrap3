@@ -1,7 +1,4 @@
 {
-  "providers": [
-    "Caouecs\\Bootstrap3\\Bootstrap3ServiceProvider"
-  ],
   "aliases": [
     {
       "alias": "Form",
@@ -10,6 +7,10 @@
     {
       "alias": "Alert",
       "facade": "Caouecs\\Bootstrap3\\Alert"
-    }
+    },
+    {
+      "alias": "Breadcrumb",
+      "facade": "Caouecs\\Bootstrap3\\Breadcrumb"
+    },
   ]
 }
