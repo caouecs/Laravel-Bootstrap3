@@ -54,6 +54,43 @@ class Form extends \Illuminate\Support\Facades\Form {
     }
 
     /**
+     * Display checkbox for form basic
+     *
+     * @access public
+     * @param string $name Name of checkbox
+     * @param string $title Title of checkbox
+     * @param mixed $value Value if checked
+     * @param mixed $input Value by input
+     * @param ExceptionError $errors
+     * @param array $attributes
+     * @param string $help Help message
+     * @return string
+     */
+    static public function checkbox_basic($name, $title, $value = 1, $input = 0, $errors = null, $attributes = array(), $help = null)
+    {
+        $txt = '<div class="form-group">
+                    <label>';
+
+        $input = Request::old($name) ? Request::old($name) : $input;
+
+        if ($input == $value)
+            $checked = true;
+        else
+            $checked = false;
+
+        $txt .= self::checkbox($name, $value, $checked, $attributes);
+
+        $txt .= ' '.$title.'</label>';
+
+        if (!is_null($errors) && $errors->has($name))
+            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+
+        $txt .= '</div>';
+
+        return $txt;
+    }
+
+    /**
      * Display select for form basic
      *
      * @access public
