@@ -29,14 +29,14 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function input_basic($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function input_basic($type, $name, $title = null, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
         if (!is_null($errors) && $errors->has($name))
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= self::label($name, $title);
+        $txt .= '<label for="'.$name.'">'.$title.'</label>';
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
@@ -44,43 +44,6 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         if (!empty($help))
             $txt .= '<span class="help-block">'.$help.'</span>';
-
-        if (!is_null($errors) && $errors->has($name))
-            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
-
-        $txt .= '</div>';
-
-        return $txt;
-    }
-
-    /**
-     * Display checkbox for form basic
-     *
-     * @access public
-     * @param string $name Name of checkbox
-     * @param string $title Title of checkbox
-     * @param mixed $value Value if checked
-     * @param mixed $input Value by input
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
-     * @return string
-     */
-    static public function checkbox_basic($name, $title, $value = 1, $input = 0, $errors = null, $attributes = array(), $help = null)
-    {
-        $txt = '<div class="form-group">
-                    <label>';
-
-        $input = Request::old($name) ? Request::old($name) : $input;
-
-        if ($input == $value)
-            $checked = true;
-        else
-            $checked = false;
-
-        $txt .= self::checkbox($name, $value, $checked, $attributes);
-
-        $txt .= ' '.$title.'</label>';
 
         if (!is_null($errors) && $errors->has($name))
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
@@ -146,7 +109,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
         $txt .= '<div class="col-md-10">';
 
@@ -186,7 +149,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
         $txt .= '<div class="col-md-10">';
 
@@ -233,7 +196,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
         $txt .= '<div class="col-md-10">';
 
@@ -272,8 +235,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= 'class="has-error"';
         $txt .= ' for="'.$name.'">';
 
-        $txt .= self::label($name, $title);
-
+        $txt .= '<label for="'.$name.'">'.$title.'</label>';
 
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
@@ -311,7 +273,7 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= self::label($name, $title, array("class" => "col-md-2 control-label"));
+        $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
         $txt .= '<div class="col-md-10">';
 
