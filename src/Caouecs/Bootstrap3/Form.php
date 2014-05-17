@@ -102,20 +102,37 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function input_group($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function input_group($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null, $label=true, $iconpre=false, $iconpost=false)
     {
         $txt = '<div class="form-group';
         if (!is_null($errors) && $errors->has($name))
             $txt .= ' has-error';
         $txt .= '" for="'.$name.'">';
 
-        $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
+		if($label){
+			
+			$txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
+			
+			$txt .= '<div class="col-md-10">';
 
-        $txt .= '<div class="col-md-10">';
+		} else {
+
+			$txt .= '<div class="col-md-12">';
+
+		}
+
+		if($iconpost || $iconpre) $txt .= '<div class="input-group">';
+
+		if($iconpre) $txt .= '<span class="input-group-addon"><span class="'.$iconpre.'"></span></span>';
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
         $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
+		
+		if($iconpost) $txt .= '<span class="input-group-addon"><span class="'.$iconpost.'"></span></span>';
+
+		if($iconpost || $iconpre) $txt .= '</div>';
+
 
         if (!empty($help))
             $txt .= '<span class="help-block">'.$help.'</span>';
@@ -127,7 +144,7 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         return $txt;
     }
-
+    
     /**
      * Display input for form-group for multi-language
      *
