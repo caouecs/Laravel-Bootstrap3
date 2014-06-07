@@ -32,8 +32,11 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function input_basic($type, $name, $title = null, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">';
 
         $txt .= '<label for="'.$name.'">'.$title.'</label>';
@@ -42,11 +45,13 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div>';
 
@@ -69,8 +74,11 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function select_basic($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">
             <label for="'.$name.'">'.$title.'</label>';
 
@@ -78,11 +86,13 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $txt .= self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div>';
 
@@ -100,51 +110,61 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param ExceptionError $errors
      * @param array $attributes
      * @param string $help Help message
+     * @param boolean $label Display label
+     * @param boolean $iconpre Display icon previous
+     * @param boolean $iconpost Display icon post
      * @return string
      */
-    static public function input_group($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null, $label=true, $iconpre=false, $iconpost=false)
+    static public function input_group($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null, $label = true, $iconpre = false, $iconpost = false)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">';
 
-		if($label){
-			
-			$txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
-			
-			$txt .= '<div class="col-md-10">';
+        if ($label) {
+            $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
+            $txt .= '<div class="col-md-10">';
+        } else {
+            $txt .= '<div class="col-md-12">';
+        }
 
-		} else {
+        if ($iconpost || $iconpre) {
+            $txt .= '<div class="input-group">';
+        }
 
-			$txt .= '<div class="col-md-12">';
-
-		}
-
-		if($iconpost || $iconpre) $txt .= '<div class="input-group">';
-
-		if($iconpre) $txt .= '<span class="input-group-addon"><span class="'.$iconpre.'"></span></span>';
+        if ($iconpre) {
+            $txt .= '<span class="input-group-addon"><span class="'.$iconpre.'"></span></span>';
+        }
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
         $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
-		
-		if($iconpost) $txt .= '<span class="input-group-addon"><span class="'.$iconpost.'"></span></span>';
 
-		if($iconpost || $iconpre) $txt .= '</div>';
+        if ($iconpost) {
+            $txt .= '<span class="input-group-addon"><span class="'.$iconpost.'"></span></span>';
+        }
 
+        if($iconpost || $iconpre) {
+            $txt .= '</div>';
+        }
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div></div>';
 
         return $txt;
     }
-    
+
     /**
      * Display input for form-group for multi-language
      *
@@ -162,16 +182,19 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function input_multi_language_group($languages, $type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">';
 
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
-
         $txt .= '<div class="col-md-10">';
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
@@ -179,14 +202,17 @@ class Form extends \Illuminate\Support\Facades\Form {
 
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
 
-            if (empty($value_tmp))
+            if (empty($value_tmp)) {
                 $value_tmp = isset($value[$val['id']][$name]) ? $value[$val['id']][$name] : null;
+            }
 
             $txt .= '<div class="pull-left">'.$val['title'].'</div>';
 
             $txt .= self::input($type, $name."[".$val['id']."]", $value_tmp, $attributes);
-            if (!is_null($errors) && $errors->has($name."[".$val['id']."]"))
+
+            if (!is_null($errors) && $errors->has($name."[".$val['id']."]")) {
                 $txt .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
+            }
         }
 
         $txt .= '</div></div>';
@@ -209,8 +235,11 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function textarea_group($name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">';
 
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
@@ -222,11 +251,13 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $txt .= self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div></div>';
 
@@ -248,8 +279,11 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function textarea_line($name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div style="margin-bottom:20px" ';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= 'class="has-error"';
+        }
+
         $txt .= ' for="'.$name.'">';
 
         $txt .= '<label for="'.$name.'">'.$title.'</label>';
@@ -259,11 +293,13 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $txt .= self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div>';
 
@@ -286,16 +322,20 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function textarea_multi_language_group($languages, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">';
 
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
         $txt .= '<div class="col-md-10">';
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
@@ -304,15 +344,17 @@ class Form extends \Illuminate\Support\Facades\Form {
 
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
 
-            if (empty($value_tmp))
+            if (empty($value_tmp)) {
                 $value_tmp = isset($value[$val['id']][$name]) ? $value[$val['id']][$name] : null;
+            }
 
             $txt .= '<div>'.$val['title'].'</div>';
 
             $txt .= self::textarea($name."[".$val['id']."]", $value_tmp, $attributes);
 
-            if (!is_null($errors) && $errors->has($name."[".$val['id']."]"))
+            if (!is_null($errors) && $errors->has($name."[".$val['id']."]")) {
                 $txt .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
+            }
         }
 
         $txt .= '</div></div>';
@@ -336,8 +378,11 @@ class Form extends \Illuminate\Support\Facades\Form {
     static public function select_group($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
-        if (!is_null($errors) && $errors->has($name))
+
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= ' has-error';
+        }
+
         $txt .= '" for="'.$name.'">
             <label  class="col-md-2 control-label" for="'.$name.'">'.$title.'</label>
             <div class="col-md-10">';
@@ -346,11 +391,13 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $txt .= self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div></div>';
 
@@ -379,17 +426,19 @@ class Form extends \Illuminate\Support\Facades\Form {
 
         $input = Request::old($name) ? Request::old($name) : $input;
 
-        if ($input == $value)
+        if ($input == $value) {
             $checked = true;
-        else
+        } else {
             $checked = false;
+        }
 
         $txt .= self::checkbox($name, $value, $checked, $attributes);
 
         $txt .= ' '.$title.'</label>';
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '     </div>
                     </div>
@@ -425,11 +474,13 @@ class Form extends \Illuminate\Support\Facades\Form {
             $txt .= self::radio($name, $key, ($key == $value), $attributes).' '.$_value.' ';
         }
 
-        if (!empty($help))
+        if (!empty($help)) {
             $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
-        if (!is_null($errors) && $errors->has($name))
+        if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
+        }
 
         $txt .= '</div></div>';
 
