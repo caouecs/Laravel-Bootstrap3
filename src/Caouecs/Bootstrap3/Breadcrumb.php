@@ -11,7 +11,7 @@ class Breadcrumb extends Core {
      * @var array
      */
     protected $elements = array();
- 
+
     /**
      * Attributes of breadcrumb
      *
@@ -22,12 +22,12 @@ class Breadcrumb extends Core {
 
     /**
      * Construct
-     * 
+     *
      * @access public
      * @param array $attributes Attributes of breadcrumb
      * @return void
      */
-    public function __construct($attributes = array())
+    public function __construct(array $attributes = array())
     {
         if (!empty($attributes) && is_array($attributes)) {
             $this->attributes = $attributes;
@@ -41,7 +41,7 @@ class Breadcrumb extends Core {
      * @param array $attributes Attributes of breadcrumb
      * @return Breadcrumb
      */
-    public static function create($attributes = array())
+    public static function create(array $attributes = array())
     {
         return new Breadcrumb($attributes);
     }
@@ -55,7 +55,7 @@ class Breadcrumb extends Core {
      * @param array $attributes Attributes of element
      * @return Breadcrumb
      */
-    public function add($title, $link = null, $attributes = array())
+    public function add($title, $link = null, array $attributes = array())
     {
         $this->elements[] = array(
             "title" => e($title),

@@ -8,12 +8,12 @@ class Form extends \Illuminate\Support\Facades\Form {
      * Open form-horizontal
      *
      * @access public
-     * @param array $params
+     * @param array $options
      * @return string
      */
-    static public function open_horizontal($params)
+    static public function open_horizontal(array $options = array())
     {
-        return self::open(Helpers::addClass($params, "form-horizontal"));
+        return self::open(Helpers::addClass($options, "form-horizontal"));
     }
 
     /**
@@ -29,7 +29,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function input_basic($type, $name, $title = null, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function input_basic($type, $name, $title = null, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
 
@@ -71,7 +71,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function select_basic($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function select_basic($name, $title, $list, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
 
@@ -115,7 +115,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param boolean $iconpost Display icon post
      * @return string
      */
-    static public function input_group($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null, $label = true, $iconpre = false, $iconpost = false)
+    static public function input_group($type, $name, $title, $value = null, $errors = null, array $attributes = array(), $help = null, $label = true, $iconpre = false, $iconpost = false)
     {
         $txt = '<div class="form-group';
 
@@ -179,7 +179,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function input_multi_language_group($languages, $type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function input_multi_language_group($languages, $type, $name, $title, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
 
@@ -232,7 +232,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function textarea_group($name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function textarea_group($name, $title, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
 
@@ -276,7 +276,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function textarea_line($name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function textarea_line($name, $title, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div style="margin-bottom:20px" ';
 
@@ -319,7 +319,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function textarea_multi_language_group($languages, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function textarea_multi_language_group($languages, $name, $title, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
 
@@ -375,7 +375,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function select_group($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
+    static public function select_group($name, $title, $list, $value = null, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group';
 
@@ -417,7 +417,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function checkbox_group($name, $title, $value = 1, $input = 0, $errors = null, $attributes = array(), $help = null)
+    static public function checkbox_group($name, $title, $value = 1, $input = 0, $errors = null, array $attributes = array(), $help = null)
     {
         $txt = '<div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
@@ -460,7 +460,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param string $help Help message
      * @return string
      */
-    static public function radio_group($name, $title, $choices, $value = 1, $errors = null, $attributes = array(), $help = null)
+    static public function radio_group($name, $title, $choices, $value = 1, $errors = null, array $attributes = array(), $help = null)
     {
         if (!is_array($choices) || empty($choices)) {
             return null;
@@ -495,7 +495,7 @@ class Form extends \Illuminate\Support\Facades\Form {
      * @param array $attributes
      * @return string
      */
-    static public function submit_group($options = array(), $attributes = array())
+    static public function submit_group(array $options = array(), array $attributes = array())
     {
         $txt = '<div class="form-group">
             <div class="col-md-offset-2 col-md-10">';
