@@ -37,7 +37,7 @@ class Indicator extends Core {
      * @param array $attributes Attributes of indicator
      * @return void
      */
-    public function __construct($class, $message, array $attributes = array())
+    public function __construct($class, $message, $attributes = array())
     {
         if (ctype_alpha(str_replace(array("-", "_", " "), "", $class))) {
             $this->class = $class;
@@ -81,7 +81,7 @@ class Indicator extends Core {
      * @param array $attributes Attributes of indicator
      * @return Indicator
      */
-    public static function custom($class, $message, array $attributes = array())
+    public static function custom($class, $message, $attributes = array())
     {
         return static::create($class, $message, $attributes);
     }

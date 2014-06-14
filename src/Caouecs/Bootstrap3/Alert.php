@@ -37,7 +37,7 @@ class Alert extends Indicator {
      * @param array $attributes Attributes of indicator
      * @return Alert
      */
-    protected static function create($class, $message, array $attributes = array())
+    protected static function create($class, $message, $attributes = array())
     {
         return new Alert($class, $message, $attributes);
     }
