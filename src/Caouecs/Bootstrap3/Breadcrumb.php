@@ -2,7 +2,8 @@
 
 use \HTML;
 
-class Breadcrumb extends Core {
+class Breadcrumb extends Core
+{
 
     /**
      * Elements of breadcrumb

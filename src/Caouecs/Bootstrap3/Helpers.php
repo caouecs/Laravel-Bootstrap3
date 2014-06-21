@@ -1,6 +1,7 @@
 <?php namespace Caouecs\Bootstrap3;
 
-class Helpers {
+class Helpers
+{
     /**
      * Colors
      *

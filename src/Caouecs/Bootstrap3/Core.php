@@ -1,6 +1,7 @@
 <?php namespace Caouecs\Bootstrap3;
 
-class Core {
+class Core
+{
 
     /**
      * Display
@@ -12,5 +13,4 @@ class Core {
     {
         return $this->show();
     }
-
 }

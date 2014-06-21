@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class Bootstrap3ServiceProvider extends ServiceProvider {
+class Bootstrap3ServiceProvider extends ServiceProvider
+{
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -40,5 +41,4 @@ class Bootstrap3ServiceProvider extends ServiceProvider {
     {
         return array();
     }
-
 }

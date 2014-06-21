@@ -2,7 +2,8 @@
 
 use \HTML;
 
-class Alert extends Indicator {
+class Alert extends Indicator
+{
 
     /**
      * Type of indicator
