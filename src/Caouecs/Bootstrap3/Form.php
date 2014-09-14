@@ -1,4 +1,5 @@
-<?php namespace Caouecs\Bootstrap3;
+<?php
+namespace Caouecs\Bootstrap3;
 
 use Request;
 
@@ -30,8 +31,15 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function input_basic($type, $name, $title = null, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function input_basic(
+        $type,
+        $name,
+        $title = null,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -72,8 +80,15 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function select_basic($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function select_basic(
+        $name,
+        $title,
+        $list,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -116,8 +131,18 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param boolean $iconpost Display icon post
      * @return string
      */
-    public static function input_group($type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null, $label = true, $iconpre = false, $iconpost = false)
-    {
+    public static function input_group(
+        $type,
+        $name,
+        $title,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null,
+        $label = true,
+        $iconpre = false,
+        $iconpost = false
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -180,8 +205,16 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function input_multi_language_group($languages, $type, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function input_multi_language_group(
+        $languages,
+        $type,
+        $name,
+        $title,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -189,7 +222,6 @@ class Form extends \Illuminate\Support\Facades\Form
         }
 
         $txt .= '" for="'.$name.'">';
-
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
         $txt .= '<div class="col-md-10">';
 
@@ -200,7 +232,6 @@ class Form extends \Illuminate\Support\Facades\Form
         $attributes = Helpers::addClass($attributes, "form-control");
 
         foreach ($languages as $key => $val) {
-
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
 
             if (empty($value_tmp)) {
@@ -233,8 +264,14 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function textarea_group($name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function textarea_group(
+        $name,
+        $title,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -277,8 +314,14 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function textarea_line($name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function textarea_line(
+        $name,
+        $title,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div style="margin-bottom:20px" ';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -320,8 +363,15 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function textarea_multi_language_group($languages, $name, $title, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function textarea_multi_language_group(
+        $languages,
+        $name,
+        $title,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -342,7 +392,6 @@ class Form extends \Illuminate\Support\Facades\Form
         $attributes['rows'] = 5;
 
         foreach ($languages as $key => $val) {
-
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
 
             if (empty($value_tmp)) {
@@ -376,8 +425,15 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function select_group($name, $title, $list, $value = null, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function select_group(
+        $name,
+        $title,
+        $list,
+        $value = null,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group';
 
         if (!is_null($errors) && $errors->has($name)) {
@@ -418,8 +474,15 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function checkbox_group($name, $title, $value = 1, $input = 0, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function checkbox_group(
+        $name,
+        $title,
+        $value = 1,
+        $input = 0,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         $txt = '<div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                       <div class="checkbox">
@@ -461,8 +524,15 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function radio_group($name, $title, $choices, $value = 1, $errors = null, $attributes = array(), $help = null)
-    {
+    public static function radio_group(
+        $name,
+        $title,
+        $choices,
+        $value = 1,
+        $errors = null,
+        $attributes = array(),
+        $help = null
+    ) {
         if (!is_array($choices) || empty($choices)) {
             return null;
         }

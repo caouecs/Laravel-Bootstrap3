@@ -1,4 +1,5 @@
-<?php namespace Caouecs\Bootstrap3;
+<?php
+namespace Caouecs\Bootstrap3;
 
 use \HTML;
 

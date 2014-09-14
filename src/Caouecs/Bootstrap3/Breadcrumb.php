@@ -1,4 +1,5 @@
-<?php namespace Caouecs\Bootstrap3;
+<?php
+namespace Caouecs\Bootstrap3;
 
 use \HTML;
 
@@ -84,7 +85,6 @@ class Breadcrumb extends Core
         $res = '<ol'.HTML::attributes($attributes).' itemprop="breadcrumb">';
 
         foreach ($this->elements as $element) {
-
             $res .= '<li'.HTML::attributes($element['attributes']).'>';
 
             // link

@@ -1,4 +1,5 @@
-<?php namespace Caouecs\Bootstrap3;
+<?php
+namespace Caouecs\Bootstrap3;
 
 class Helpers
 {
@@ -10,7 +11,9 @@ class Helpers
      *
      * @todo Know why light and dark are just for label and badge
      */
-    public static $colors = array("primary", "secondary", "normal", "info", "danger", "warning", "success", "light", "dark");
+    public static $colors = array(
+        "primary", "secondary", "normal", "info", "danger", "warning", "success", "light", "dark"
+    );
 
     /**
      * Add value in an array
