@@ -8,8 +8,6 @@ class Helpers
      *
      * @access public
      * @var array
-     *
-     * @todo Know why light and dark are just for label and badge
      */
     public static $colors = array(
         "primary", "secondary", "normal", "info", "danger", "warning", "success", "light", "dark"
