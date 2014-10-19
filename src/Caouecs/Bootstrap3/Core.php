@@ -3,7 +3,6 @@ namespace Caouecs\Bootstrap3;
 
 class Core
 {
-
     /**
      * Display
      *

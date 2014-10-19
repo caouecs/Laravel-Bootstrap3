@@ -5,7 +5,6 @@ use Request;
 
 class Form extends \Illuminate\Support\Facades\Form
 {
-
     /**
      * Open form-horizontal
      *

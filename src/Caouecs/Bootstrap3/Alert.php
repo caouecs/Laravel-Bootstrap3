@@ -5,7 +5,6 @@ use \HTML;
 
 class Alert extends Indicator
 {
-
     /**
      * Type of indicator
      *

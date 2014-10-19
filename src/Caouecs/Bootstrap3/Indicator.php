@@ -5,7 +5,6 @@ use \HTML;
 
 class Indicator extends Core
 {
-
     /**
      * Class of indicator
      *
