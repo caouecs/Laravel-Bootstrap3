@@ -87,7 +87,7 @@ class Breadcrumb extends Core
             $res .= '<li'.HTML::attributes($element['attributes']).'>';
 
             // link
-            if (isset($element['link']) and $element['link'] != null) {
+            if (isset($element['link']) && !empty($element['link'])) {
                 $res .= '<a href="'.$element['link'].'">'.$element['title'].'</a>';
             } else {
                 $res .= $element['title'];
