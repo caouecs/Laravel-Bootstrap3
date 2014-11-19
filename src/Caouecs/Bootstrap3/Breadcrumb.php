@@ -1,7 +1,7 @@
 <?php
 namespace Caouecs\Bootstrap3;
 
-use \HTML;
+use HTML;
 
 class Breadcrumb extends Core
 {

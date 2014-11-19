@@ -3,7 +3,7 @@ namespace Caouecs\Bootstrap3;
 
 use Request;
 
-class Form extends \Illuminate\Support\Facades\Form
+class Form extends Illuminate\Support\Facades\Form
 {
     /**
      * Open form-horizontal
