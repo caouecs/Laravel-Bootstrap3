@@ -45,7 +45,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">';
+        $txt .= '">';
 
         $txt .= '<label for="'.$name.'">'.$title.'</label>';
 
@@ -94,7 +94,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">
+        $txt .= '">
             <label for="'.$name.'">'.$title.'</label>';
 
         $attributes = Helpers::addClass($attributes, "form-control");
@@ -148,7 +148,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">';
+        $txt .= '">';
 
         if ($label) {
             $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
@@ -220,7 +220,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">';
+        $txt .= '">';
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
         $txt .= '<div class="col-md-10">';
 
@@ -277,7 +277,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">';
+        $txt .= '">';
 
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
@@ -327,7 +327,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= 'class="has-error"';
         }
 
-        $txt .= ' for="'.$name.'">';
+        $txt .= '>';
 
         $txt .= '<label for="'.$name.'">'.$title.'</label>';
 
@@ -377,7 +377,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">';
+        $txt .= '">';
 
         $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
 
@@ -439,7 +439,7 @@ class Form extends Illuminate\Support\Facades\Form
             $txt .= ' has-error';
         }
 
-        $txt .= '" for="'.$name.'">
+        $txt .= '">
             <label  class="col-md-2 control-label" for="'.$name.'">'.$title.'</label>
             <div class="col-md-10">';
 
