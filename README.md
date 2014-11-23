@@ -51,47 +51,47 @@ You can display a simple breadcrumb.
 
 You can display a horizontal form with :
 
-    Form::open_horizontal()
+    Form::openHorizontal()
 
 ### Input for basic exemple
 
-    Form::input_basic($type_input, $name_input, $title, $value, $errors_from_Laravel, $attributes, $help)
+    Form::inputBasic($type_input, $name_input, $title, $value, $errors_from_Laravel, $attributes, $help)
 
-    Form::select_basic($name_input, $title, $list, $value, $errors_from_Laravel, $attributes, $help)
+    Form::selectBasic($name_input, $title, $list, $value, $errors_from_Laravel, $attributes, $help)
 
 ### Input for form horizontal
 
 Input with type text, url, email...
 
-    Form::input_group($type_input, $name_input, $title, $value, $errors_from_Laravel, $attributes, $help)
+    Form::inputGroup($type_input, $name_input, $title, $value, $errors_from_Laravel, $attributes, $help)
 
 Input with translation
 
-    Form::input_multi_language_group($languages, $type_input, $name_input, $title, $value, $errors_from_Laravel, $attributes, $help)
+    Form::inputMultiLanguageGroup($languages, $type_input, $name_input, $title, $value, $errors_from_Laravel, $attributes, $help)
 
 Select
 
-    Form::select_group($name_input, $title, $list, $value, $errors_from_Laravel, $attributes, $help)
+    Form::selectGroup($name_input, $title, $list, $value, $errors_from_Laravel, $attributes, $help)
 
 Textarea
 
-    Form::textarea_group($name_textarea, $title, $value, $errors_from_Laravel, $attributes, $help)
+    Form::textareaGroup($name_textarea, $title, $value, $errors_from_Laravel, $attributes, $help)
 
 Textarea with translation
 
-    Form::textarea_multi_language_group($languages, $name_textarea, $title, $value, $errors_from_Laravel, $attributes, $help)
+    Form::textareaMultiLanguageGroup($languages, $name_textarea, $title, $value, $errors_from_Laravel, $attributes, $help)
 
 Checkbox
 
-    Form:::checkbox_group($name_checkbox, $title, $value, $input, $errors_from_Laravel, $attributes, $help)
+    Form:::checkboxGroup($name_checkbox, $title, $value, $input, $errors_from_Laravel, $attributes, $help)
 
 Input radio
 
-    Form::radio_group($name_radio, $title, $choices, $value, $errors_from_Laravel, $attributes, $help)
+    Form::radioGroup($name_radio, $title, $choices, $value, $errors_from_Laravel, $attributes, $help)
 
 Submit
 
-    Form::submit_group($options, $attributes)
+    Form::submitGroup($options, $attributes)
 
 ---
 
