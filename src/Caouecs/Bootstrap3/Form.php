@@ -2,8 +2,9 @@
 namespace Caouecs\Bootstrap3;
 
 use Request;
+use Illuminate\Support\Facades\Form as FacadeForm;
 
-class Form extends \Illuminate\Support\Facades\Form
+class Form extends FacadeForm
 {
     /**
      * Open form-horizontal
@@ -12,7 +13,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param array $options
      * @return string
      */
-    public static function open_horizontal($options = array())
+    public static function openHorizontal($options = array())
     {
         return self::open(Helpers::addClass($options, "form-horizontal"));
     }
@@ -30,7 +31,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function input_basic(
+    public static function inputBasic(
         $type,
         $name,
         $title = null,
@@ -79,7 +80,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function select_basic(
+    public static function selectBasic(
         $name,
         $title,
         $list,
@@ -130,7 +131,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param boolean $iconpost Display icon post
      * @return string
      */
-    public static function input_group(
+    public static function inputGroup(
         $type,
         $name,
         $title,
@@ -204,7 +205,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function input_multi_language_group(
+    public static function inputMultiLanguageGroup(
         $languages,
         $type,
         $name,
@@ -263,7 +264,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function textarea_group(
+    public static function textareaGroup(
         $name,
         $title,
         $value = null,
@@ -313,7 +314,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function textarea_line(
+    public static function textareaLine(
         $name,
         $title,
         $value = null,
@@ -362,7 +363,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function textarea_multi_language_group(
+    public static function textareaMultiLanguageGroup(
         $languages,
         $name,
         $title,
@@ -424,7 +425,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function select_group(
+    public static function selectGroup(
         $name,
         $title,
         $list,
@@ -473,7 +474,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function checkbox_group(
+    public static function checkboxGroup(
         $name,
         $title,
         $value = 1,
@@ -523,7 +524,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $help Help message
      * @return string
      */
-    public static function radio_group(
+    public static function radioGroup(
         $name,
         $title,
         $choices,
@@ -565,7 +566,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param array $attributes
      * @return string
      */
-    public static function submit_group($options = array(), $attributes = array())
+    public static function submitGroup($options = array(), $attributes = array())
     {
         $txt = '<div class="form-group">
             <div class="col-md-offset-2 col-md-10">';
@@ -604,7 +605,7 @@ class Form extends \Illuminate\Support\Facades\Form
      * @param string $text
      * @return string
      */
-    public static function text_group($title, $text)
+    public static function textGroup($title, $text)
     {
         return '<div class="form-group">
             <label  class="col-md-2 control-label">'.$title.'</label>
