@@ -78,7 +78,8 @@ class Alert extends Indicator
 
         // close
         if ($this->close === true) {
-            $res .= '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+            $res .= '<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>'
+                .'<span class="sr-only">Close</span></button>';
         }
 
         $res .= $this->message.'</'.$this->tag.'>';
