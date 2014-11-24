@@ -15,9 +15,15 @@ Add `"caouecs/bootstrap3": "dev-master"` to your composer.json or run `composer 
 
 So, I recommend you use [Package Installer](https://github.com/rtablada/package-installer), Laravel4-Bootstrap3 has a valid provides.json file. After installation of Package Installer, just run `php artisan package:install caouecs/bootstrap3` ; the lists of aliases will be up-to-date.
 
+### Specific installation
+
+If you want the stable version with PSR-2 for Form, choose `"caouecs/bootstrap3": "~1.0"` version. But if you want old version, choose `"caouecs/bootstrap3": "~0.1"`.
+
 ## Requirements
 
 Laravel4-Bootstrap3 was tested with Bootstrap 3 and 3.1.
+
+    We look for persons to validate in Bootstrap 3.3.
 
 ---
 
