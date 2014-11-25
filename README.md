@@ -57,7 +57,7 @@ You can display dropdowns with Dropdown class.
 
 Display a simple dropdown with two links.
 
-    Dropdown::create()->addLink("Link 1", "/edit")->addDivider()->addLink("Link 2", "/delete")
+    Dropdown::create()->addLink("Link 1", "/edit")->addLink("Link 2", "/delete")
     <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
             Action
@@ -65,11 +65,35 @@ Display a simple dropdown with two links.
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/edit">Link 1</a></li>
-            <li role="presentation" class="divider"></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="/delete">Link 2</a></li>
         </ul>
     </div>
 
+Display a dropdown with four links, a divider and two headers.
+
+    Dropdown::create("Admin")
+        ->addHeader("Header 1")
+        ->addLink("Link 1", "/edit")
+        ->addLink("Link 2", "/delete")
+        ->addDivider()
+        ->addHeader("Header 2")
+        ->addDisabled("Disabled link")
+        ->addLink("Link 4", "/delete")
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+            Admin
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation" class="dropdown-header">Header 1</li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/edit">Link 1</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/delete">Link 2</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="dropdown-header">Header 2</li>
+            <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Disabled Link</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="/delete">Link 4</a></li>
+        </ul>
+    </div>
 
 ## Form
 
