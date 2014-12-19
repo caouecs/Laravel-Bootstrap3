@@ -231,7 +231,7 @@ class Form extends FacadeForm
 
         $attributes = Helpers::addClass($attributes, "form-control");
 
-        foreach ($languages as $key => $val) {
+        foreach ($languages as $val) {
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
 
             if (empty($value_tmp)) {
@@ -391,7 +391,7 @@ class Form extends FacadeForm
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
 
-        foreach ($languages as $key => $val) {
+        foreach ($languages as $val) {
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
 
             if (empty($value_tmp)) {
@@ -499,6 +499,10 @@ class Form extends FacadeForm
         $txt .= self::checkbox($name, $value, $checked, $attributes);
 
         $txt .= ' '.$title.'</label>';
+
+        if (!empty($help)) {
+            $txt .= '<span class="help-block">'.$help.'</span>';
+        }
 
         if (!is_null($errors) && $errors->has($name)) {
             $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
