@@ -25,7 +25,7 @@ class Breadcrumb extends Core
      * Construct
      *
      * @access public
-     * @param array $attributes Attributes of breadcrumb
+     * @param  array $attributes Attributes of breadcrumb
      * @return void
      */
     public function __construct($attributes = array())
@@ -39,7 +39,7 @@ class Breadcrumb extends Core
      * Create a new Breadcrumb
      *
      * @access public
-     * @param array $attributes Attributes of breadcrumb
+     * @param  array      $attributes Attributes of breadcrumb
      * @return Breadcrumb
      */
     public static function create($attributes = array())
@@ -51,9 +51,9 @@ class Breadcrumb extends Core
      * Add element
      *
      * @access public
-     * @param string $title Title of element
-     * @param string $link Link of element
-     * @param array $attributes Attributes of element
+     * @param  string     $title      Title of element
+     * @param  string     $link       Link of element
+     * @param  array      $attributes Attributes of element
      * @return Breadcrumb
      */
     public function add($title, $link = null, $attributes = array())
@@ -61,7 +61,7 @@ class Breadcrumb extends Core
         $this->elements[] = array(
             "title" => e($title),
             "link" => (string) $link,
-            "attributes" => $attributes
+            "attributes" => $attributes,
         );
 
         return $this;
@@ -76,7 +76,7 @@ class Breadcrumb extends Core
     public function show()
     {
         if (empty($this->elements)) {
-            return null;
+            return;
         }
 
         $attributes = Helpers::addClass($this->attributes, "breadcrumb");

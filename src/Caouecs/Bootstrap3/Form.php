@@ -3,6 +3,7 @@ namespace Caouecs\Bootstrap3;
 
 use Request;
 use Illuminate\Support\Facades\Form as FacadeForm;
+use View;
 
 class Form extends FacadeForm
 {
@@ -10,7 +11,7 @@ class Form extends FacadeForm
      * Open form-horizontal
      *
      * @access public
-     * @param array $options
+     * @param  array  $options
      * @return string
      */
     public static function openHorizontal($options = array())
@@ -22,13 +23,13 @@ class Form extends FacadeForm
      * Display input for form basic
      *
      * @access public
-     * @param string $type Type of input
-     * @param string $name Name of input
-     * @param string $title Title of input
-     * @param mixed $value Value of input
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $type       Type of input
+     * @param  string         $name       Name of input
+     * @param  string         $title      Title of input
+     * @param  mixed          $value      Value of input
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function inputBasic(
@@ -71,13 +72,13 @@ class Form extends FacadeForm
      * Display select for form basic
      *
      * @access public
-     * @param string $name Name of select
-     * @param string $title Title of select
-     * @param array $list List of values
-     * @param mixed $value Value of select
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $name       Name of select
+     * @param  string         $title      Title of select
+     * @param  array          $list       List of values
+     * @param  mixed          $value      Value of select
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function selectBasic(
@@ -119,16 +120,16 @@ class Form extends FacadeForm
      * Display input for form-group
      *
      * @access public
-     * @param string $type Type of input
-     * @param string $name Name of input
-     * @param string $title Title of input
-     * @param mixed $value Value of input
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
-     * @param boolean $label Display label
-     * @param boolean $iconpre Display icon previous
-     * @param boolean $iconpost Display icon post
+     * @param  string         $type       Type of input
+     * @param  string         $name       Name of input
+     * @param  string         $title      Title of input
+     * @param  mixed          $value      Value of input
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
+     * @param  boolean        $label      Display label
+     * @param  string         $iconpre    Display icon previous
+     * @param  string         $iconpost   Display icon post
      * @return string
      */
     public static function inputGroup(
@@ -140,8 +141,8 @@ class Form extends FacadeForm
         $attributes = array(),
         $help = null,
         $label = true,
-        $iconpre = false,
-        $iconpost = false
+        $iconpre = null,
+        $iconpost = null
     ) {
         $txt = '<div class="form-group';
 
@@ -195,14 +196,14 @@ class Form extends FacadeForm
      * Display input for form-group for multi-language
      *
      * @access public
-     * @param array $languages List of languages
-     * @param string $type Type of input
-     * @param string $name Name of input
-     * @param string $title Title of input
-     * @param mixed $value Value of input
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  array          $languages  List of languages
+     * @param  string         $type       Type of input
+     * @param  string         $name       Name of input
+     * @param  string         $title      Title of input
+     * @param  mixed          $value      Value of input
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function inputMultiLanguageGroup(
@@ -256,12 +257,12 @@ class Form extends FacadeForm
      * Display textarea for form-group
      *
      * @access public
-     * @param string $name Name of textarea
-     * @param string $title Title of textarea
-     * @param mixed $value Value of textarea
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $name       Name of textarea
+     * @param  string         $title      Title of textarea
+     * @param  mixed          $value      Value of textarea
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function textareaGroup(
@@ -306,12 +307,12 @@ class Form extends FacadeForm
      * Display textarea for form-group
      *
      * @access public
-     * @param string $name Name of textarea
-     * @param string $title Title of textarea
-     * @param mixed $value Value of textarea
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $name       Name of textarea
+     * @param  string         $title      Title of textarea
+     * @param  mixed          $value      Value of textarea
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function textareaLine(
@@ -322,45 +323,31 @@ class Form extends FacadeForm
         $attributes = array(),
         $help = null
     ) {
-        $txt = '<div style="margin-bottom:20px" ';
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= 'class="has-error"';
-        }
-
-        $txt .= '>';
-
-        $txt .= '<label for="'.$name.'">'.$title.'</label>';
-
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
 
-        $txt .= self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
+        $text = self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
-        if (!empty($help)) {
-            $txt .= '<span class="help-block">'.$help.'</span>';
-        }
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
-        }
-
-        $txt .= '</div>';
-
-        return $txt;
+        return self::view("form.textareaLine", array(
+            "errors" => $errors,
+            "name" => $name,
+            "title" => $title,
+            "help" => $help,
+            "text" => $text,
+        ));
     }
 
     /**
      * Display textarea for form-group for multi language
      *
      * @access public
-     * @param array $languages List of languages
-     * @param string $name Name of textarea
-     * @param string $title Title of textarea
-     * @param mixed $value Value of textarea
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  array          $languages  List of languages
+     * @param  string         $name       Name of textarea
+     * @param  string         $title      Title of textarea
+     * @param  mixed          $value      Value of textarea
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function textareaMultiLanguageGroup(
@@ -372,24 +359,10 @@ class Form extends FacadeForm
         $attributes = array(),
         $help = null
     ) {
-        $txt = '<div class="form-group';
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= ' has-error';
-        }
-
-        $txt .= '">';
-
-        $txt .= '<label for="'.$name.'" class="col-md-2 control-label">'.$title.'</label>';
-
-        $txt .= '<div class="col-md-10">';
-
-        if (!empty($help)) {
-            $txt .= '<span class="help-block">'.$help.'</span>';
-        }
-
         $attributes = Helpers::addClass($attributes, "form-control");
         $attributes['rows'] = 5;
+
+        $text = null;
 
         foreach ($languages as $val) {
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
@@ -398,31 +371,35 @@ class Form extends FacadeForm
                 $value_tmp = isset($value[$val['id']][$name]) ? $value[$val['id']][$name] : null;
             }
 
-            $txt .= '<div>'.$val['title'].'</div>';
+            $text .= '<div>'.$val['title'].'</div>';
 
-            $txt .= self::textarea($name."[".$val['id']."]", $value_tmp, $attributes);
+            $text .= self::textarea($name."[".$val['id']."]", $value_tmp, $attributes);
 
             if (!is_null($errors) && $errors->has($name."[".$val['id']."]")) {
-                $txt .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
+                $text .= '<span class="text-danger">'.$errors->first($name."[".$val['id']."]").'</span>';
             }
         }
 
-        $txt .= '</div></div>';
-
-        return $txt;
+        return self::view("form.textareaMultiLanguageGroup", array(
+            "errors" => $errors,
+            "name" => $name,
+            "title" => $title,
+            "help" => $help,
+            "text" => $text,
+        ));
     }
 
     /**
      * Display select for form-group
      *
      * @access public
-     * @param string $name Name of select
-     * @param string $title Title of select
-     * @param array $list List of values
-     * @param mixed $value Value of select
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $name       Name of select
+     * @param  string         $title      Title of select
+     * @param  array          $list       List of values
+     * @param  mixed          $value      Value of select
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function selectGroup(
@@ -434,44 +411,28 @@ class Form extends FacadeForm
         $attributes = array(),
         $help = null
     ) {
-        $txt = '<div class="form-group';
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= ' has-error';
-        }
-
-        $txt .= '">
-            <label  class="col-md-2 control-label" for="'.$name.'">'.$title.'</label>
-            <div class="col-md-10">';
-
         $attributes = Helpers::addClass($attributes, "form-control");
 
-        $txt .= self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
-
-        if (!empty($help)) {
-            $txt .= '<span class="help-block">'.$help.'</span>';
-        }
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
-        }
-
-        $txt .= '</div></div>';
-
-        return $txt;
+        return self::view("form.selectGroup", array(
+            "errors" => $errors,
+            "name" => $name,
+            "title" => $title,
+            "help" => $help,
+            "text" => self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes)
+        ));
     }
 
     /**
      * Display checkbox for form-group
      *
      * @access public
-     * @param string $name Name of checkbox
-     * @param string $title Title of checkbox
-     * @param mixed $value Value if checked
-     * @param mixed $input Value by input
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $name       Name of checkbox
+     * @param  string         $title      Title of checkbox
+     * @param  mixed          $value      Value if checked
+     * @param  mixed          $input      Value by input
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function checkboxGroup(
@@ -483,49 +444,28 @@ class Form extends FacadeForm
         $attributes = array(),
         $help = null
     ) {
-        $txt = '<div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                      <div class="checkbox">
-                        <label>';
-
         $input = Request::old($name) ? Request::old($name) : $input;
 
-        if ($input == $value) {
-            $checked = true;
-        } else {
-            $checked = false;
-        }
-
-        $txt .= self::checkbox($name, $value, $checked, $attributes);
-
-        $txt .= ' '.$title.'</label>';
-
-        if (!empty($help)) {
-            $txt .= '<span class="help-block">'.$help.'</span>';
-        }
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
-        }
-
-        $txt .= '     </div>
-                    </div>
-                  </div>';
-
-        return $txt;
+        return self::view("form.checkboxGroup", array(
+            "title" => $title,
+            "text" => self::checkbox($name, $value, ($input == $value), $attributes),
+            "help" => $help,
+            "errors" => $errors,
+            "name" => $name,
+        ));
     }
 
     /**
      * Display input radio for form-group
      *
      * @access public
-     * @param string $name Name of radio
-     * @param string $title Title of radio
-     * @param array $choices Choices
-     * @param mixed $value Value if checked
-     * @param ExceptionError $errors
-     * @param array $attributes
-     * @param string $help Help message
+     * @param  string         $name       Name of radio
+     * @param  string         $title      Title of radio
+     * @param  array          $choices    Choices
+     * @param  mixed          $value      Value if checked
+     * @param  ExceptionError $errors
+     * @param  array          $attributes
+     * @param  string         $help       Help message
      * @return string
      */
     public static function radioGroup(
@@ -537,83 +477,85 @@ class Form extends FacadeForm
         $attributes = array(),
         $help = null
     ) {
-        if (!is_array($choices) || empty($choices)) {
-            return null;
+        if (!is_array($choices)) {
+            return;
         }
 
-        $txt = '<div class="form-group">
-            <label  class="col-md-2 control-label">'.$title.'</label>
-            <div class="col-md-10">';
+        $text = null;
 
         foreach ($choices as $key => $_value) {
-            $txt .= self::radio($name, $key, ($key == $value), $attributes).' '.$_value.' ';
+            $text .= self::radio($name, $key, ($key == $value), $attributes).' '.$_value.' ';
         }
 
-        if (!empty($help)) {
-            $txt .= '<span class="help-block">'.$help.'</span>';
-        }
-
-        if (!is_null($errors) && $errors->has($name)) {
-            $txt .= '<span class="text-danger">'.$errors->first($name).'</span>';
-        }
-
-        $txt .= '</div></div>';
-
-        return $txt;
+        return self::view("form.radioGroup", array(
+            "title" => $title,
+            "text"  => $text,
+            "help"  => $help,
+            "errors" => $errors,
+            "name" => $name,
+        ));
     }
 
     /**
      * Display submit with cancel for form-group
      *
      * @access public
-     * @param array $options
-     * @param array $attributes
+     * @param  array  $options
+     * @param  array  $attributes
      * @return string
      */
     public static function submitGroup($options = array(), $attributes = array())
     {
-        $txt = '<div class="form-group">
-            <div class="col-md-offset-2 col-md-10">';
-
         $attributes = Helpers::addClass($attributes, "btn btn-primary");
 
-        $options['submit_title'] = isset($options['submit_title']) ? $options['submit_title'] : trans('form.submit');
+        $options['submit_title'] = array_get($options, "submit_title", trans('form.submit'));
 
-        $txt .= self::submit($options['submit_title'], $attributes);
+        $text = self::submit($options['submit_title'], $attributes);
 
         /**
          * Url for cancel
          */
         if (isset($options['cancel_url'])) {
-            $txt .= ' <a href="'.$options['cancel_url'].'">'.trans('form.cancel').'</a>';
+            $text .= ' '.link_to($options['cancel_url'], trans('form.cancel'));
         }
 
         /**
          * Reset
          */
         if (isset($options['reset']) && $options['reset'] === true) {
-            $txt .= ' '.self::reset("Reset", array("class" => "btn btn-default"));
+            $text .= ' '.self::reset("Reset", array("class" => "btn btn-default"));
         }
 
-        $txt .= '</div>
-        </div>';
-
-        return $txt;
+        return self::view("form.submitGroup", array(
+            "text" => $text,
+        ));
     }
 
     /**
      * Display text with title for form-group
      *
      * @access public
-     * @param string $title
-     * @param string $text
+     * @param  string $title
+     * @param  string $text
      * @return string
      */
     public static function textGroup($title, $text)
     {
-        return '<div class="form-group">
-            <label  class="col-md-2 control-label">'.$title.'</label>
-            <div class="col-md-10">'.$text.'</div>
-          </div>';
+        return self::view("form.textGroup", array(
+            "title" => $title,
+            "text"  => $text,
+        ));
+    }
+
+    /**
+     * Personalized views
+     *
+     * @access public
+     * @param string $viewName Name of the base view
+     * @param array  $params   Params
+     */
+    public static function view($viewName, $params = array())
+    {
+        return View::make("bootstrap3::".$viewName, $params);
     }
 }

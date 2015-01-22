@@ -1,2 +1,4 @@
 composer.lock
 .c9
+.phpintel
+**/*.AppleDouble

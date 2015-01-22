@@ -33,9 +33,9 @@ class Indicator extends Core
      * Construct
      *
      * @access public
-     * @param string $class Class of indicator
-     * @param string $message Message in indicator
-     * @param array $attributes Attributes of indicator
+     * @param  string $class      Class of indicator
+     * @param  string $message    Message in indicator
+     * @param  array  $attributes Attributes of indicator
      * @return void
      */
     public function __construct($class, $message, $attributes = array())
@@ -55,8 +55,8 @@ class Indicator extends Core
      * Call an indicator by color
      *
      * @access public
-     * @param string $method Method called
-     * @param array $params Params of method
+     * @param  string    $method Method called
+     * @param  array     $params Params of method
      * @return Indicator
      */
     public static function __callStatic($method, $params)
@@ -77,9 +77,9 @@ class Indicator extends Core
      * Create a custom indicator
      *
      * @access public
-     * @param string $class Class custom of indicator
-     * @param string $message Message in indicator
-     * @param array $attributes Attributes of indicator
+     * @param  string    $class      Class custom of indicator
+     * @param  string    $message    Message in indicator
+     * @param  array     $attributes Attributes of indicator
      * @return Indicator
      */
     public static function custom($class, $message, $attributes = array())
@@ -91,7 +91,7 @@ class Indicator extends Core
      * Update tag
      *
      * @access public
-     * @param string $tag Tag
+     * @param  string    $tag Tag
      * @return Indicator
      */
     public function tag($tag)

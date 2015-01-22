@@ -33,8 +33,8 @@ class Dropdown extends Core
      * Construct
      *
      * @access public
-     * @param string $title Title of dropdown
-     * @param array $attributes Attributes of dropdown
+     * @param  string $title      Title of dropdown
+     * @param  array  $attributes Attributes of dropdown
      * @return void
      */
     public function __construct($title = "Action", $attributes = array())
@@ -50,8 +50,8 @@ class Dropdown extends Core
      * Create a new Dropdown
      *
      * @access public
-     * @param string $title Title of dropdown
-     * @param array $attributes Attributes of dropdown
+     * @param  string   $title      Title of dropdown
+     * @param  array    $attributes Attributes of dropdown
      * @return Dropdown
      */
     public static function create($title = "Action", $attributes = array())
@@ -63,8 +63,8 @@ class Dropdown extends Core
      * Add link
      *
      * @access public
-     * @param string $title Title of element
-     * @param string $link Link of element
+     * @param  string   $title Title of element
+     * @param  string   $link  Link of element
      * @return Dropdown
      */
     public function addLink($title, $link = null)
@@ -72,7 +72,7 @@ class Dropdown extends Core
         $this->elements[] = array(
             "type" => "link",
             "title" => e($title),
-            "link" => (string) $link
+            "link" => (string) $link,
         );
 
         return $this;
@@ -82,14 +82,14 @@ class Dropdown extends Core
      * Add header
      *
      * @access public
-     * @param string $title Title of element
+     * @param  string   $title Title of element
      * @return Dropdown
      */
     public function addHeader($title)
     {
         $this->elements[] = array(
             "type" => "header",
-            "title" => e($title)
+            "title" => e($title),
         );
 
         return $this;
@@ -104,7 +104,7 @@ class Dropdown extends Core
     public function addDivider()
     {
         $this->elements[] = array(
-            "type" => "divider"
+            "type" => "divider",
         );
 
         return $this;
@@ -114,14 +114,14 @@ class Dropdown extends Core
      * Add disabled
      *
      * @access public
-     * @param string $title Title of element
+     * @param  string   $title Title of element
      * @return Dropdown
      */
     public function addDisabled($title)
     {
         $this->elements[] = array(
             "type" => "disabled",
-            "title" => e($title)
+            "title" => e($title),
         );
 
         return $this;
@@ -136,13 +136,14 @@ class Dropdown extends Core
     public function show()
     {
         if (empty($this->elements)) {
-            return null;
+            return;
         }
 
         $attributes = Helpers::addClass($this->attributes, "dropdown");
 
         $res = '<div'.HTML::attributes($attributes).'>
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+            data-toggle="dropdown" aria-expanded="true">
             '.$this->title.'
             <span class="caret"></span>
           </button>

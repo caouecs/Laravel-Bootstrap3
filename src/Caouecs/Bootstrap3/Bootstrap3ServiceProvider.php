@@ -2,6 +2,7 @@
 namespace Caouecs\Bootstrap3;
 
 use Illuminate\Support\ServiceProvider;
+use View;
 
 class Bootstrap3ServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,8 @@ class Bootstrap3ServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->package('caouecs/bootstrap3');
+
+        View::addNamespace('bootstrap3', __DIR__.'/../../views/');
     }
 
     /**
