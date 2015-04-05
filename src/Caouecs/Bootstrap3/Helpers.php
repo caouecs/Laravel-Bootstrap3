@@ -4,22 +4,21 @@ namespace Caouecs\Bootstrap3;
 class Helpers
 {
     /**
-     * Colors
+     * Colors.
      *
-     * @access public
      * @var array
      */
-    public static $colors = array(
+    public static $colors = [
         "primary", "secondary", "normal", "info", "danger", "warning", "success", "light", "dark",
-    );
+    ];
 
     /**
-     * Add value in an array
+     * Add value in an array.
      *
-     * @access public
-     * @param  array  $array Array object
-     * @param  string $value Value to add
-     * @param  string $key   Array key to use
+     * @param array  $array Array object
+     * @param string $value Value to add
+     * @param string $key   Array key to use
+     *
      * @return array
      */
     public static function addClass($array, $value, $key = 'class')

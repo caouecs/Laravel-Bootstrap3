@@ -4,9 +4,8 @@ namespace Caouecs\Bootstrap3;
 class Core
 {
     /**
-     * Display
+     * Display.
      *
-     * @access public
      * @return string
      */
     public function __toString()

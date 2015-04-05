@@ -6,38 +6,33 @@ use HTML;
 class Dropdown extends Core
 {
     /**
-     * Title of dropdown
+     * Title of dropdown.
      *
-     * @access protected
      * @var string
      */
     protected $title = null;
 
     /**
-     * Elements of dropdown
+     * Elements of dropdown.
      *
-     * @access protected
      * @var array
      */
-    protected $elements = array();
+    protected $elements = [];
 
     /**
-     * Attributes of dropdown
+     * Attributes of dropdown.
      *
-     * @access protected
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = [];
 
     /**
-     * Construct
+     * Construct.
      *
-     * @access public
-     * @param  string $title      Title of dropdown
-     * @param  array  $attributes Attributes of dropdown
-     * @return void
+     * @param string $title      Title of dropdown
+     * @param array  $attributes Attributes of dropdown
      */
-    public function __construct($title = "Action", $attributes = array())
+    public function __construct($title = "Action", $attributes = [])
     {
         $this->title = $title;
 
@@ -47,90 +42,88 @@ class Dropdown extends Core
     }
 
     /**
-     * Create a new Dropdown
+     * Create a new Dropdown.
      *
-     * @access public
-     * @param  string   $title      Title of dropdown
-     * @param  array    $attributes Attributes of dropdown
+     * @param string $title      Title of dropdown
+     * @param array  $attributes Attributes of dropdown
+     *
      * @return Dropdown
      */
-    public static function create($title = "Action", $attributes = array())
+    public static function create($title = "Action", $attributes = [])
     {
         return new Dropdown($title, $attributes);
     }
 
     /**
-     * Add link
+     * Add link.
      *
-     * @access public
-     * @param  string   $title Title of element
-     * @param  string   $link  Link of element
+     * @param string $title Title of element
+     * @param string $link  Link of element
+     *
      * @return Dropdown
      */
     public function addLink($title, $link = null)
     {
-        $this->elements[] = array(
+        $this->elements[] = [
             "type" => "link",
             "title" => e($title),
             "link" => (string) $link,
-        );
+        ];
 
         return $this;
     }
 
     /**
-     * Add header
+     * Add header.
      *
-     * @access public
-     * @param  string   $title Title of element
+     * @param string $title Title of element
+     *
      * @return Dropdown
      */
     public function addHeader($title)
     {
-        $this->elements[] = array(
+        $this->elements[] = [
             "type" => "header",
             "title" => e($title),
-        );
+        ];
 
         return $this;
     }
 
     /**
-     * Add divider
+     * Add divider.
      *
-     * @access public
      * @return Dropdown
      */
     public function addDivider()
     {
-        $this->elements[] = array(
+        $this->elements[] = [
             "type" => "divider",
-        );
+        ];
 
         return $this;
     }
 
     /**
-     * Add disabled
+     * Add disabled.
      *
-     * @access public
-     * @param  string   $title Title of element
+     * @param string $title Title of element
+     *
      * @return Dropdown
      */
     public function addDisabled($title)
     {
-        $this->elements[] = array(
+        $this->elements[] = [
             "type" => "disabled",
             "title" => e($title),
-        );
+        ];
 
         return $this;
     }
 
     /**
-     * Display dropdown
+     * Display dropdown.
      *
-     * @access public
      * @return string
      */
     public function show()

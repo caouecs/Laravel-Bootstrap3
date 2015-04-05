@@ -6,29 +6,25 @@ use HTML;
 class Breadcrumb extends Core
 {
     /**
-     * Elements of breadcrumb
+     * Elements of breadcrumb.
      *
-     * @access protected
      * @var array
      */
-    protected $elements = array();
+    protected $elements = [];
 
     /**
-     * Attributes of breadcrumb
+     * Attributes of breadcrumb.
      *
-     * @access protected
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = [];
 
     /**
-     * Construct
+     * Construct.
      *
-     * @access public
-     * @param  array $attributes Attributes of breadcrumb
-     * @return void
+     * @param array $attributes Attributes of breadcrumb
      */
-    public function __construct($attributes = array())
+    public function __construct($attributes = [])
     {
         if (!empty($attributes) && is_array($attributes)) {
             $this->attributes = $attributes;
@@ -36,41 +32,40 @@ class Breadcrumb extends Core
     }
 
     /**
-     * Create a new Breadcrumb
+     * Create a new Breadcrumb.
      *
-     * @access public
-     * @param  array      $attributes Attributes of breadcrumb
+     * @param array $attributes Attributes of breadcrumb
+     *
      * @return Breadcrumb
      */
-    public static function create($attributes = array())
+    public static function create($attributes = [])
     {
         return new Breadcrumb($attributes);
     }
 
     /**
-     * Add element
+     * Add element.
      *
-     * @access public
-     * @param  string     $title      Title of element
-     * @param  string     $link       Link of element
-     * @param  array      $attributes Attributes of element
+     * @param string $title      Title of element
+     * @param string $link       Link of element
+     * @param array  $attributes Attributes of element
+     *
      * @return Breadcrumb
      */
-    public function add($title, $link = null, $attributes = array())
+    public function add($title, $link = null, $attributes = [])
     {
-        $this->elements[] = array(
+        $this->elements[] = [
             "title" => e($title),
             "link" => (string) $link,
             "attributes" => $attributes,
-        );
+        ];
 
         return $this;
     }
 
     /**
-     * Display breadcrumb
+     * Display breadcrumb.
      *
-     * @access public
      * @return string
      */
     public function show()

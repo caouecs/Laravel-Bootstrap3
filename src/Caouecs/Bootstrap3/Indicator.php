@@ -6,41 +6,36 @@ use HTML;
 class Indicator extends Core
 {
     /**
-     * Class of indicator
+     * Class of indicator.
      *
-     * @access private
      * @var string
      */
     protected $class = 'default';
 
     /**
-     * Message in indicator
+     * Message in indicator.
      *
-     * @access private
      * @var string
      */
     protected $message = null;
 
     /**
-     * Attributes of indicator
+     * Attributes of indicator.
      *
-     * @access private
      * @var array
      */
-    protected $attributes = array();
+    protected $attributes = [];
 
     /**
-     * Construct
+     * Construct.
      *
-     * @access public
-     * @param  string $class      Class of indicator
-     * @param  string $message    Message in indicator
-     * @param  array  $attributes Attributes of indicator
-     * @return void
+     * @param string $class      Class of indicator
+     * @param string $message    Message in indicator
+     * @param array  $attributes Attributes of indicator
      */
-    public function __construct($class, $message, $attributes = array())
+    public function __construct($class, $message, $attributes = [])
     {
-        if (ctype_alpha(str_replace(array("-", "_", " "), "", $class))) {
+        if (ctype_alpha(str_replace(["-", "_", " "], "", $class))) {
             $this->class = $class;
         }
 
@@ -52,11 +47,11 @@ class Indicator extends Core
     }
 
     /**
-     * Call an indicator by color
+     * Call an indicator by color.
      *
-     * @access public
-     * @param  string    $method Method called
-     * @param  array     $params Params of method
+     * @param string $method Method called
+     * @param array  $params Params of method
+     *
      * @return Indicator
      */
     public static function __callStatic($method, $params)
@@ -74,24 +69,24 @@ class Indicator extends Core
     }
 
     /**
-     * Create a custom indicator
+     * Create a custom indicator.
      *
-     * @access public
-     * @param  string    $class      Class custom of indicator
-     * @param  string    $message    Message in indicator
-     * @param  array     $attributes Attributes of indicator
+     * @param string $class      Class custom of indicator
+     * @param string $message    Message in indicator
+     * @param array  $attributes Attributes of indicator
+     *
      * @return Indicator
      */
-    public static function custom($class, $message, $attributes = array())
+    public static function custom($class, $message, $attributes = [])
     {
         return static::create($class, $message, $attributes);
     }
 
     /**
-     * Update tag
+     * Update tag.
      *
-     * @access public
-     * @param  string    $tag Tag
+     * @param string $tag Tag
+     *
      * @return Indicator
      */
     public function tag($tag)
@@ -104,9 +99,8 @@ class Indicator extends Core
     }
 
     /**
-     * Return html
+     * Return html.
      *
-     * @access public
      * @return string
      */
     public function show()

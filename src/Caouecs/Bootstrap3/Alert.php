@@ -6,47 +6,43 @@ use HTML;
 class Alert extends Indicator
 {
     /**
-     * Type of indicator
+     * Type of indicator.
      *
-     * @access protected
      * @var string
      */
     protected $type = "alert";
 
     /**
-     * Tag
+     * Tag.
      *
-     * @access protected
      * @var string
      */
     protected $tag = "div";
 
     /**
-     * Close
+     * Close.
      *
-     * @access protected
      * @var boolean
      */
     protected $close = false;
 
     /**
-     * Create a new Alert
+     * Create a new Alert.
      *
-     * @access protected
-     * @param  string $class      Class of indicator
-     * @param  string $message    Message in indicator
-     * @param  array  $attributes Attributes of indicator
+     * @param string $class      Class of indicator
+     * @param string $message    Message in indicator
+     * @param array  $attributes Attributes of indicator
+     *
      * @return Alert
      */
-    protected static function create($class, $message, $attributes = array())
+    protected static function create($class, $message, $attributes = [])
     {
         return new Alert($class, $message, $attributes);
     }
 
     /**
-     * Add link for close
+     * Add link for close.
      *
-     * @access public
      * @return Alert
      */
     public function close()
@@ -57,9 +53,8 @@ class Alert extends Indicator
     }
 
     /**
-     * Display Alert
+     * Display Alert.
      *
-     * @access public
      * @return string
      */
     public function show()
