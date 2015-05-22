@@ -2,7 +2,7 @@
 namespace Caouecs\Bootstrap3;
 
 use Request;
-use Illuminate\Support\Facades\Form as FacadeForm;
+use Collective\Html\FormFacade as FacadeForm;
 use View;
 
 class Form extends FacadeForm

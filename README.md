@@ -1,13 +1,23 @@
-# Laravel4-Bootstrap3
+# Laravel-Bootstrap3
 
-This package includes UI modules of [Bootstrap 3](http://www.getbootstrap.com) for a [Laravel](http://www.laravel.com) project.
+This package includes UI modules of [Bootstrap 3](http://www.getbootstrap.com) for a [Laravel 4/5](http://www.laravel.com) project.
 
 
 ## Installation
 
 This package is available through Packagist and Composer.
 
-Add `"caouecs/bootstrap3": "dev-master"` to your composer.json or run `composer require caouecs/bootstrap3`. Then you can add theses aliases in your `app/config/app.php`:
+### Laravel 5
+
+Add `"caouecs/bootstrap3": "2.*"` to your composer.json or run `composer require caouecs/bootstrap3`.
+
+### Laravel 4
+
+Add `"caouecs/bootstrap3": "1.2.*"` to your composer.json or run `composer require caouecs/bootstrap3`.
+
+### Configuration
+
+Then you can add theses aliases in your `app/config/app.php`:
 
     'Alert'           => 'Caouecs\Bootstrap3\Alert',
     'Breadcrumb'      => 'Caouecs\Bootstrap3\Breadcrumb',
@@ -17,15 +27,11 @@ Since the version 1.2, you must add the service provider :
 
     'Caouecs\\Bootstrap3\\Bootstrap3ServiceProvider'
 
-So, I recommend you use [Package Installer](https://github.com/rtablada/package-installer), Laravel4-Bootstrap3 has a valid provides.json file. After installation of Package Installer, just run `php artisan package:install caouecs/bootstrap3` ; the lists of aliases will be up-to-date.
-
-### Specific installation
-
-If you want the stable version with PSR-2 for Form, choose `"caouecs/bootstrap3": "~1.0"` version. But if you want old version, choose `"caouecs/bootstrap3": "~0.1"`.
+So, I recommend you use [Package Installer](https://github.com/rtablada/package-installer), Laravel-Bootstrap3 has a valid provides.json file. After installation of Package Installer, just run `php artisan package:install caouecs/bootstrap3` ; the lists of aliases will be up-to-date.
 
 ## Requirements
 
-Laravel4-Bootstrap3 was tested with Bootstrap 3 and 3.1.
+Laravel-Bootstrap3 was tested with Bootstrap 3 and 3.1.
 
     We look for persons to validate in Bootstrap 3.3.
 

@@ -18,9 +18,7 @@ class Bootstrap3ServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->package('caouecs/bootstrap3');
-
-        View::addNamespace('bootstrap3', __DIR__.'/../../views/');
+        $this->loadViewsFrom(__DIR__.'/../../views', 'bootstrap3');
     }
 
     /**
