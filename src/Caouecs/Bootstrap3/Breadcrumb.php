@@ -55,8 +55,8 @@ class Breadcrumb extends Core
     public function add($title, $link = null, $attributes = [])
     {
         $this->elements[] = [
-            "title" => e($title),
-            "link" => (string) $link,
+            "title"      => e($title),
+            "link"       => (string) $link,
             "attributes" => $attributes,
         ];
 

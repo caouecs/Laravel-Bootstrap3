@@ -1,8 +1,8 @@
 <?php
 namespace Caouecs\Bootstrap3;
 
-use Request;
 use Collective\Html\FormFacade as FacadeForm;
+use Request;
 use View;
 
 class Form extends FacadeForm
@@ -330,10 +330,10 @@ class Form extends FacadeForm
 
         return self::view("form.textareaLine", [
             "errors" => $errors,
-            "name" => $name,
-            "title" => $title,
-            "help" => $help,
-            "text" => $text,
+            "name"   => $name,
+            "title"  => $title,
+            "help"   => $help,
+            "text"   => $text,
         ]);
     }
 
@@ -382,10 +382,10 @@ class Form extends FacadeForm
 
         return self::view("form.textareaMultiLanguageGroup", [
             "errors" => $errors,
-            "name" => $name,
-            "title" => $title,
-            "help" => $help,
-            "text" => $text,
+            "name"   => $name,
+            "title"  => $title,
+            "help"   => $help,
+            "text"   => $text,
         ]);
     }
 
@@ -415,10 +415,10 @@ class Form extends FacadeForm
 
         return self::view("form.selectGroup", [
             "errors" => $errors,
-            "name" => $name,
-            "title" => $title,
-            "help" => $help,
-            "text" => self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes),
+            "name"   => $name,
+            "title"  => $title,
+            "help"   => $help,
+            "text"   => self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes),
         ]);
     }
 
@@ -447,11 +447,11 @@ class Form extends FacadeForm
         $input = Request::old($name) ? Request::old($name) : $input;
 
         return self::view("form.checkboxGroup", [
-            "title" => $title,
-            "text" => self::checkbox($name, $value, ($input == $value), $attributes),
-            "help" => $help,
+            "title"  => $title,
+            "text"   => self::checkbox($name, $value, ($input == $value), $attributes),
+            "help"   => $help,
             "errors" => $errors,
-            "name" => $name,
+            "name"   => $name,
         ]);
     }
 
@@ -488,11 +488,11 @@ class Form extends FacadeForm
         }
 
         return self::view("form.radioGroup", [
-            "title" => $title,
-            "text"  => $text,
-            "help"  => $help,
+            "title"  => $title,
+            "text"   => $text,
+            "help"   => $help,
             "errors" => $errors,
-            "name" => $name,
+            "name"  => $name,
         ]);
     }
 

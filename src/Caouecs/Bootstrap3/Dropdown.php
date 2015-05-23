@@ -65,9 +65,9 @@ class Dropdown extends Core
     public function addLink($title, $link = null)
     {
         $this->elements[] = [
-            "type" => "link",
+            "type"  => "link",
             "title" => e($title),
-            "link" => (string) $link,
+            "link"  => (string) $link,
         ];
 
         return $this;
@@ -83,7 +83,7 @@ class Dropdown extends Core
     public function addHeader($title)
     {
         $this->elements[] = [
-            "type" => "header",
+            "type"  => "header",
             "title" => e($title),
         ];
 
@@ -114,7 +114,7 @@ class Dropdown extends Core
     public function addDisabled($title)
     {
         $this->elements[] = [
-            "type" => "disabled",
+            "type"  => "disabled",
             "title" => e($title),
         ];
 
