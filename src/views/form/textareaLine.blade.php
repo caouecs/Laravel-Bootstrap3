@@ -3,15 +3,15 @@
 @else
   <div class="form-group" style="margin-bottom:20px">
 @endif
-  <label for="{{ $name }}">{{ $title }}</label>
+  <label for="{!! $name !!}">{!! $title !!}</label>
 
-  {{ $text }}
+  {!! $text !!}
 
 @if (!is_null($errors) && $errors->has($name))
-  <span class="text-danger">{{ $errors->first($name) }}</span>
+  <span class="text-danger">{!! $errors->first($name) !!}</span>
 @endif
 
 @if (!empty($help))
-  <span class="help-block">{{ $help }}</span>
+  <span class="help-block">{!! $help !!}</span>
 @endif
 </div>
