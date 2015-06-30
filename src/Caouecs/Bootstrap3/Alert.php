@@ -10,19 +10,19 @@ class Alert extends Indicator
      *
      * @var string
      */
-    protected $type = "alert";
+    protected $type = 'alert';
 
     /**
      * Tag.
      *
      * @var string
      */
-    protected $tag = "div";
+    protected $tag = 'div';
 
     /**
      * Close.
      *
-     * @var boolean
+     * @var bool
      */
     protected $close = false;
 
@@ -37,7 +37,7 @@ class Alert extends Indicator
      */
     protected static function create($class, $message, $attributes = [])
     {
-        return new Alert($class, $message, $attributes);
+        return new self($class, $message, $attributes);
     }
 
     /**

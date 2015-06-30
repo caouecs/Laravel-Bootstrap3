@@ -1,4 +1,5 @@
 <?php
+
 namespace Caouecs\Bootstrap3;
 
 class Core

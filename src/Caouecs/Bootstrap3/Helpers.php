@@ -1,4 +1,5 @@
 <?php
+
 namespace Caouecs\Bootstrap3;
 
 class Helpers
@@ -9,7 +10,7 @@ class Helpers
      * @var array
      */
     public static $colors = [
-        "primary", "secondary", "normal", "info", "danger", "warning", "success", "light", "dark",
+        'primary', 'secondary', 'normal', 'info', 'danger', 'warning', 'success', 'light', 'dark',
     ];
 
     /**

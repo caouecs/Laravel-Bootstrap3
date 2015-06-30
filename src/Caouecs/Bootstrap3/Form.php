@@ -1,4 +1,5 @@
 <?php
+
 namespace Caouecs\Bootstrap3;
 
 use Collective\Html\FormFacade as FacadeForm;
@@ -16,7 +17,7 @@ class Form extends FacadeForm
      */
     public static function openHorizontal($options = [])
     {
-        return self::open(Helpers::addClass($options, "form-horizontal"));
+        return self::open(Helpers::addClass($options, 'form-horizontal'));
     }
 
     /**
@@ -51,7 +52,7 @@ class Form extends FacadeForm
 
         $txt .= '<label for="'.$name.'">'.$title.'</label>';
 
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
 
         $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
@@ -99,7 +100,7 @@ class Form extends FacadeForm
         $txt .= '">
             <label for="'.$name.'">'.$title.'</label>';
 
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
 
         $txt .= self::select($name, $list, Request::old($name) ? Request::old($name) : $value, $attributes);
 
@@ -126,7 +127,7 @@ class Form extends FacadeForm
      * @param ExceptionError $errors
      * @param array          $attributes
      * @param string         $help       Help message
-     * @param boolean        $label      Display label
+     * @param bool           $label      Display label
      * @param string         $iconpre    Display icon previous
      * @param string         $iconpost   Display icon post
      *
@@ -167,7 +168,7 @@ class Form extends FacadeForm
             $txt .= '<span class="input-group-addon"><span class="'.$iconpre.'"></span></span>';
         }
 
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
 
         $txt .= self::input($type, $name, Request::old($name) ? Request::old($name) : $value, $attributes);
 
@@ -230,7 +231,7 @@ class Form extends FacadeForm
             $txt .= '<span class="help-block">'.$help.'</span>';
         }
 
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
 
         foreach ($languages as $val) {
             $value_tmp = Request::old($name."[".$val['id']."]") ? Request::old($name."[".$val['id']."]") : null;
@@ -285,7 +286,7 @@ class Form extends FacadeForm
 
         $txt .= '<div class="col-md-10">';
 
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
         $attributes['rows'] = 5;
 
         $txt .= self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
@@ -323,7 +324,7 @@ class Form extends FacadeForm
         $attributes = [],
         $help = null
     ) {
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
         $attributes['rows'] = 5;
 
         $text = self::textarea($name, Request::old($name) ? Request::old($name) : $value, $attributes);
@@ -359,7 +360,7 @@ class Form extends FacadeForm
         $attributes = [],
         $help = null
     ) {
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
         $attributes['rows'] = 5;
 
         $text = null;
@@ -411,7 +412,7 @@ class Form extends FacadeForm
         $attributes = [],
         $help = null
     ) {
-        $attributes = Helpers::addClass($attributes, "form-control");
+        $attributes = Helpers::addClass($attributes, 'form-control');
 
         return self::view("form.selectGroup", [
             "errors" => $errors,

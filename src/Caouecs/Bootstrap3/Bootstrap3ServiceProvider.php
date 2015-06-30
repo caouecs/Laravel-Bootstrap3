@@ -2,7 +2,6 @@
 namespace Caouecs\Bootstrap3;
 
 use Illuminate\Support\ServiceProvider;
-use View;
 
 class Bootstrap3ServiceProvider extends ServiceProvider
 {

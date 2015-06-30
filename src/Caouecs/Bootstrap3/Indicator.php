@@ -1,4 +1,5 @@
 <?php
+
 namespace Caouecs\Bootstrap3;
 
 use HTML;
@@ -35,7 +36,7 @@ class Indicator extends Core
      */
     public function __construct($class, $message, $attributes = [])
     {
-        if (ctype_alpha(str_replace(["-", "_", " "], "", $class))) {
+        if (ctype_alpha(str_replace(['-', '_', ' '], '', $class))) {
             $this->class = $class;
         }
 
@@ -58,9 +59,9 @@ class Indicator extends Core
     {
         // verif if color exists
         if (in_array($method, Helpers::$colors)) {
-            $method = "alert-".$method;
+            $method = 'alert-'.$method;
         } else {
-            $method = "alert-info";
+            $method = 'alert-info';
         }
 
         array_unshift($params, $method);

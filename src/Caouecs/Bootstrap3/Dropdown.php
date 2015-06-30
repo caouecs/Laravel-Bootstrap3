@@ -1,4 +1,5 @@
 <?php
+
 namespace Caouecs\Bootstrap3;
 
 use HTML;
@@ -32,7 +33,7 @@ class Dropdown extends Core
      * @param string $title      Title of dropdown
      * @param array  $attributes Attributes of dropdown
      */
-    public function __construct($title = "Action", $attributes = [])
+    public function __construct($title = 'Action', $attributes = [])
     {
         $this->title = $title;
 
@@ -49,9 +50,9 @@ class Dropdown extends Core
      *
      * @return Dropdown
      */
-    public static function create($title = "Action", $attributes = [])
+    public static function create($title = 'Action', $attributes = [])
     {
-        return new Dropdown($title, $attributes);
+        return new self($title, $attributes);
     }
 
     /**
@@ -65,9 +66,9 @@ class Dropdown extends Core
     public function addLink($title, $link = null)
     {
         $this->elements[] = [
-            "type"  => "link",
-            "title" => e($title),
-            "link"  => (string) $link,
+            'type'  => 'link',
+            'title' => e($title),
+            'link'  => (string) $link,
         ];
 
         return $this;
@@ -83,8 +84,8 @@ class Dropdown extends Core
     public function addHeader($title)
     {
         $this->elements[] = [
-            "type"  => "header",
-            "title" => e($title),
+            'type'  => 'header',
+            'title' => e($title),
         ];
 
         return $this;
@@ -98,7 +99,7 @@ class Dropdown extends Core
     public function addDivider()
     {
         $this->elements[] = [
-            "type" => "divider",
+            'type' => 'divider',
         ];
 
         return $this;
@@ -114,8 +115,8 @@ class Dropdown extends Core
     public function addDisabled($title)
     {
         $this->elements[] = [
-            "type"  => "disabled",
-            "title" => e($title),
+            'type'  => 'disabled',
+            'title' => e($title),
         ];
 
         return $this;
@@ -142,15 +143,15 @@ class Dropdown extends Core
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">';
         foreach ($this->elements as $element) {
-            if ($element['type'] === "link") {
+            if ($element['type'] === 'link') {
                 $res .= '<li role="presentation"><a role="menuitem" tabindex="-1" href="'.$element['link'].'">'
                     .$element['title'].'</a></li>';
-            } elseif ($element['type'] === "disabled") {
+            } elseif ($element['type'] === 'disabled') {
                 $res .= '<li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">'
                     .$element['title'].'</a></li>';
-            } elseif ($element['type'] === "header") {
+            } elseif ($element['type'] === 'header') {
                 $res .= '<li role="presentation" class="dropdown-header">'.$element['title'].'</li>';
-            } elseif ($element['type'] === "divider") {
+            } elseif ($element['type'] === 'divider') {
                 $res .= '<li role="presentation" class="divider"></li>';
             }
         }

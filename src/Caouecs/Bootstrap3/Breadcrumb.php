@@ -40,7 +40,7 @@ class Breadcrumb extends Core
      */
     public static function create($attributes = [])
     {
-        return new Breadcrumb($attributes);
+        return new self($attributes);
     }
 
     /**
@@ -55,9 +55,9 @@ class Breadcrumb extends Core
     public function add($title, $link = null, $attributes = [])
     {
         $this->elements[] = [
-            "title"      => e($title),
-            "link"       => (string) $link,
-            "attributes" => $attributes,
+            'title'      => e($title),
+            'link'       => (string) $link,
+            'attributes' => $attributes,
         ];
 
         return $this;
@@ -74,7 +74,7 @@ class Breadcrumb extends Core
             return;
         }
 
-        $attributes = Helpers::addClass($this->attributes, "breadcrumb");
+        $attributes = Helpers::addClass($this->attributes, 'breadcrumb');
 
         $res = '<ol'.HTML::attributes($attributes).' itemprop="breadcrumb">';
 
