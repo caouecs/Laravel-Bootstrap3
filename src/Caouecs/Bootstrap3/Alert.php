@@ -1,7 +1,7 @@
 <?php
 namespace Caouecs\Bootstrap3;
 
-use HTML;
+use Html;
 
 class Alert extends Indicator
 {
@@ -69,7 +69,7 @@ class Alert extends Indicator
 
         $attributes = Helpers::addClass($this->attributes, $_class);
 
-        $res = '<'.$this->tag.HTML::attributes($attributes).'>';
+        $res = '<'.$this->tag.Html::attributes($attributes).'>';
 
         // close
         if ($this->close === true) {
